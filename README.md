@@ -23,8 +23,8 @@ A motivação para a herança é na forma de organização dos dados no vetor.
 
 A classe `DAL` implementa a lista sequencial mantendo os elementos sem
 ordenação alguma. Desta forma, temos:
-1. **inserção** é feita em \Theta(1) (no final);
-2. **remoção** é feita em \Tehta(1) (remove e trás último elemento para o lugar do removido); e
+1. **inserção** é feita em Θ(1) (no final);
+2. **remoção** é feita em Θ(1) (remove e trás último elemento para o lugar do removido); e
 3. **busca** é feita em O(n).
 
 A classe `DSAL` implementa a lista sequencial mantendo os elementos em
