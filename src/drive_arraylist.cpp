@@ -15,28 +15,40 @@
 
 
 
+class MyKeyComparator {
+public:
+int operator()( int lhs, int rhs ) const {
+    if( lhs < rhs ) 
+        return -1;
+    else if ( lhs == rhs ) 
+        return 0;
+    else 
+        return 1; // lhs > rhs 
+}
+};
 
-int main ( )
-{
-    DAL< int, std::string  >  myList( 50 ); // Lista de no máximo 50 elementos.
+int main ( ) {
+std::string remover;
+DAL< int, std::string, MyKeyComparator > myList( 50 );
+
+//DSAL< int, std::string, MyKeyComparator > myList( 50 );
+
+cout << ">>> Inserindo {2015003129, \"Jack\"}" << endl; myList.insert( 1, "Jack" );
+
+cout << ">>> Inserindo {2014065190, \"John\"}" << endl; myList.insert( 2, "John" );
 
     std::cout << "\n>>> myList: " << myList << std::endl;
-try{
-    myList.insert(  2, "dado 2" );
-    myList.insert(  8, "dado 3" );
-    myList.insert( 15, "dado 1" );
-}
-catch(const std::length_error & e){
-	std::cout << ">>> Capturei uma uma exceção";
-}
-int j = 0;
+    auto j(0);
+    
+    std::cout << myList.min()<< std::endl;
+    std::cout << myList.max()<< std::endl;
+    std::cout << myList.predecessor(2,j)<< std::endl;
+    std::cout << myList.sucessor(1,j)<< std::endl;
+    std::cout << myList.remove(2,remover)<< std::endl;
+    std::cout << "\n>>> myList: " << myList << std::endl;
 
-	std::cout << "\n>>> myList: " << myList << std::endl;
 
-	std::cout << myList.min()<< std::endl;
-	std::cout << myList.max()<< std::endl;
-	std::cout << myList.predecessor(2,j)<< std::endl;
-	std::cout << j<< std::endl;
+
     std::cout << "\n>>> Normal ending...\n\n";
 
     return EXIT_SUCCESS;
