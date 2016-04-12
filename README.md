@@ -33,4 +33,4 @@ uma ordem especificada por um dos 3 argumento-template. Desta forma, temos:
 2. **remoção** é feita em O(n) (deslocamento de memória); e
 3. **busca** é feita em O(log n) (busca binária).
 
--- The end
+
