@@ -36,16 +36,15 @@ arraylist: $(OBJS)
 
 # essa entrada define como produzir o arquivo
 #Classe_LLSeq.o: Classe_LLSeq.cpp Classe_LLSeq.h
-$(DIREXECUTAVEL)/drive_arraylist.o: $(DIRFONTE)/drive_arraylist.cpp $(DIRINCLUDE)/arraylist.h $(DIRINCLUDE)/arraylist.inl
+$(DIREXECUTAVEL)/drive_arraylist.o: $(DIRFONTE)/drive_arraylist.cpp $(DIRINCLUDE)/dal.h $(DIRINCLUDE)/dal.inl
 	@echo ">>> Compilando dependencias."
 	$(CXX) $(CFLAGS) $(DIRDECLARACOES) -c $(DIRFONTE)/drive_arraylist.cpp  \
 	    -o $(DIREXECUTAVEL)/drive_arraylist.o
 
-$(DIRINCLUDE)/arraylist.h: $(DIRINCLUDE)/arraylist.inl
+$(DIRINCLUDE)/arraylist.h: $(DIRINCLUDE)/dal.inl
 
 # a entrada seguinte elimina os arquivos inuteis.
 clean:
 	@echo ">>> Limpando projeto."
 	$(DELETAR) $(DIREXECUTAVEL)/*.o $(DIRFONTE)/*~ \
 	   $(DIRINCLUDE)/*~ $(DIREXECUTAVEL)/drive_arraylist
-
